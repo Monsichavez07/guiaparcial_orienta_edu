@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guía de estudio parcial: Orientación Educativa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9efec;--card:#fff;--ink:#18302e;--mute:#5b706c;--line:#c4d1cc;--acc:#1f6b63;--gold:#b7791f;--ok:#2e7d4f;--okbg:#e2f1e8;--bad:#b4442f;--badbg:#f9e5df;
+--head:"Bitter",Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1b1a;--card:#162726;--ink:#dce8e4;--mute:#8fa7a2;--line:#2a4240;--acc:#5cc2b3;--gold:#e3b04b;--ok:#6fcf97;--okbg:#17382a;--bad:#f0907a;--badbg:#3b221c}}
+:root[data-theme="dark"]{--bg:#0f1b1a;--card:#162726;--ink:#dce8e4;--mute:#8fa7a2;--line:#2a4240;--acc:#5cc2b3;--gold:#e3b04b;--ok:#6fcf97;--okbg:#17382a;--bad:#f0907a;--badbg:#3b221c}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;min-height:100vh;display:flex;flex-direction:column}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--acc);z-index:10}
+header{background:var(--acc);color:#fff}
+.hd{max-width:820px;margin:0 auto;padding:14px 18px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+:root[data-theme="dark"] header,:root:not([data-theme="light"]) header{color:#0f1b1a}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) header{color:#fff}}
+h1{font:700 1.15rem/1.2 var(--head);margin:0}
+h1 small{display:block;font:500 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-bottom:3px}
+.tools{display:flex;gap:8px}
+.tb{font:600 .8rem var(--sans);color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:999px;padding:6px 14px;cursor:pointer;opacity:.9}
+.tb:hover{opacity:1}
+main{flex:1;width:100%;max-width:820px;margin:0 auto;padding:20px 18px 32px}
+.stats{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.score{font:700 1.6rem/1 var(--head);color:var(--acc)}
+.score small{font:500 .8rem var(--sans);color:var(--mute)}
+.bar{flex:1;height:10px;background:var(--line);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:999px;transition:width .3s}
+.pct{font:600 .8rem var(--sans);color:var(--mute);min-width:64px;text-align:right}
+.nav{display:grid;grid-template-columns:repeat(auto-fill,minmax(30px,1fr));gap:4px;margin-bottom:20px}
+.nav button{height:28px;font:600 .72rem var(--sans);border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:5px;cursor:pointer;padding:0}
+.nav button:disabled{opacity:.4;cursor:default}
+.nav .ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.nav .bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.nav .cur{outline:2px solid var(--gold);outline-offset:1px}
+.notice{background:var(--okbg);border-left:4px solid var(--ok);padding:10px 14px;font-size:.88rem;margin-bottom:16px;border-radius:0 5px 5px 0}
+.card{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--acc);border-radius:8px;padding:24px 22px}
+.num{font:700 .78rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.q{font:500 1.18rem/1.5 var(--head);margin:0 0 20px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;width:100%;font:400 .96rem/1.45 var(--sans);color:var(--ink);background:transparent;border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--acc);background:var(--bg)}
+.opt b{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font:700 .82rem var(--head);color:var(--acc)}
+.opt:disabled{cursor:default}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}
+.opt.ok b{background:var(--ok);color:#fff}
+.opt.bad{background:var(--badbg);border-color:var(--bad)}
+.opt.bad b{background:var(--bad);color:#fff}
+.fb{margin-top:18px;padding:14px 16px;border-radius:8px;font-size:.93rem;background:var(--bg)}
+.fb strong{display:block;font:700 .95rem var(--head);margin-bottom:4px}
+.fb.ok strong{color:var(--ok)}.fb.bad strong{color:var(--bad)}
+.pn{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.pn .tb{color:var(--ink);padding:9px 18px}
+.pn .tb:disabled{opacity:.35;cursor:default}
+.pn .go{padding:9px 20px}
+.go{font:600 .9rem var(--sans);background:var(--acc);color:#fff;border:0;border-radius:999px;padding:10px 22px;cursor:pointer}
+:root[data-theme="dark"] .go{color:#0f1b1a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .go{color:#0f1b1a}}
+.res h2{font:700 1.5rem var(--head);margin:0 0 4px}
+.big{font:700 3.2rem/1 var(--head);color:var(--acc);margin:12px 0 4px}
+.res p{color:var(--mute);margin:0 0 12px}
+.miss{font-size:.9rem;margin:14px 0 20px;overflow-wrap:anywhere}
+footer{text-align:center;padding:16px 18px;font-size:.78rem;color:var(--mute);border-top:1px solid var(--line)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;place-items:center;padding:20px;z-index:20}
+.modal.on{display:grid}
+.box{background:var(--card);border-radius:10px;padding:22px;max-width:360px;width:100%}
+.box p{margin:0 0 16px}
+.box div{display:flex;gap:8px;justify-content:flex-end}
+.box .tb{color:var(--ink)}
+@media (max-width:480px){.card{padding:18px 15px}.q{font-size:1.06rem}.pct{display:none}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+  <h1><small>Guía de estudio parcial:</small>Orientación Educativa</h1>
+  <div class="tools">
+    <button class="tb" id="theme" type="button">Modo oscuro</button>
+    <button class="tb" id="reset" type="button">Reiniciar</button>
+  </div>
+</div></header>
+<main>
+  <div class="stats"><div class="score" id="score"></div><div class="bar"><i id="fill"></i></div><div class="pct" id="pct"></div></div>
+  <div class="nav" id="nav"></div>
+  <div id="note"></div>
+  <div class="card" id="view"></div>
+</main>
+<footer>© A. A. Durand. Todos los derechos reservados</footer>
+<div class="modal" id="modal"><div class="box"><p>¿Seguro que quieres reiniciar? Se borrará todo tu avance guardado.</p><div><button class="tb" id="no" type="button">Cancelar</button><button class="go" id="yes" type="button">Reiniciar</button></div></div></div>
+<script>
+// [pregunta, [A,B,C,D], índice correcto (0=A), retroalimentación]
+var Q=[
+["¿Qué es la Orientación Educativa?",["Una técnica exclusiva para elegir una carrera","Una disciplina científica dentro de las Ciencias de la Educación y una actividad profesional que se extiende a lo largo de la vida","Un método de evaluación psicológica","Un programa exclusivamente académico"],1,"La Orientación Educativa es una disciplina de las Ciencias de la Educación y a la vez una práctica profesional que acompaña a la persona toda la vida. Las otras opciones la reducen a una técnica, una evaluación o un programa."],
+["¿Cuál es uno de los principales fines de la Orientación Educativa?",["Aumentar las calificaciones únicamente","Desarrollar potencialidades y capacidades personales","Eliminar los problemas familiares","Seleccionar estudiantes para una carrera"],1,"Su fin central es desarrollar las potencialidades y capacidades de la persona. Subir calificaciones, resolver problemas familiares o seleccionar estudiantes no son sus fines principales."],
+["La Orientación Educativa ayuda principalmente al individuo a:",["Evitar cualquier toma de decisiones","Descubrir herramientas para la toma de decisiones","Depender del orientador","Elegir una profesión sin considerar sus intereses"],1,"Busca que la persona descubra herramientas para decidir por sí misma. No pretende evitar decisiones, generar dependencia ni ignorar los intereses."],
+["¿Cuál de los siguientes es un espacio de aplicación de la Orientación Educativa?",["Educación emocional","Ingeniería","Contabilidad","Medicina exclusivamente"],0,"La educación emocional es un espacio de aplicación de la orientación. Ingeniería, contabilidad y medicina son campos profesionales ajenos a ese listado."],
+["El aspecto pedagógico de la Orientación Educativa busca:",["Mejorar las relaciones familiares","Desarrollar habilidades y aptitudes para mejorar el rendimiento escolar","Determinar la situación económica del estudiante","Diagnosticar enfermedades"],1,"Lo pedagógico se enfoca en habilidades y aptitudes que mejoren el rendimiento escolar. Las relaciones familiares, la economía y los diagnósticos médicos corresponden a otros aspectos."],
+["El área personal de la Orientación Educativa puede abordar:",["Únicamente las calificaciones","El desarrollo psicosexual, proyecto de vida y relaciones interpersonales","Solamente la elección profesional","Únicamente los planes de estudio"],1,"El área personal trabaja el desarrollo psicosexual, el proyecto de vida y las relaciones interpersonales. Las otras opciones pertenecen a las áreas académica, vocacional e institucional."],
+["¿Qué se trabaja principalmente en el área académica?",["Habilidades para el estudio y aprendizaje","Relaciones afectivas familiares","Distribución social de profesiones","Valores institucionales exclusivamente"],0,"El área académica se ocupa de las habilidades para estudiar y aprender. Las relaciones afectivas son del área familiar, la distribución de profesiones del área social y los valores del área institucional."],
+["El área vocacional considera principalmente:",["Intereses, aptitudes y habilidades","Únicamente la situación económica","Problemas familiares","Las reglas escolares"],0,"La orientación vocacional parte de los intereses, aptitudes y habilidades de la persona. La economía, la familia o las reglas escolares no son su eje."],
+["Una función del área vocacional es:",["Dar información sobre carreras y profesiones","Resolver problemas administrativos","Diseñar edificios escolares","Controlar la asistencia"],0,"Informar sobre carreras y profesiones es función propia del área vocacional. Las demás son tareas administrativas o de infraestructura."],
+["El área familiar busca mejorar las relaciones afectivas mediante:",["Competencia","Comunicación y acuerdos","Exámenes","Actividades laborales"],1,"En lo familiar, las relaciones mejoran con comunicación y acuerdos. La competencia, los exámenes o el trabajo no fortalecen los vínculos afectivos."],
+["¿Qué estudia la Teoría de Holland dentro de la orientación?",["El desarrollo físico","Las decisiones vocacionales y profesionales","Los problemas médicos","La memoria"],1,"La teoría de Holland explica las decisiones vocacionales y profesionales a partir de tipos de personalidad. No trata el desarrollo físico, la salud ni la memoria."],
+["Según Holland, una persona con personalidad Realista prefiere:",["Actividades creativas","Actividades de observación e investigación","Objetos, herramientas, máquinas y animales","Actividades administrativas"],2,"El tipo Realista prefiere trabajar con objetos, herramientas, máquinas y animales. Lo creativo es Artístico, la investigación es Investigador y lo administrativo es Convencional."],
+["¿Qué tipo de personalidad de Holland prefiere actividades de observación e investigación?",["Social","Investigador","Artístico","Convencional"],1,"Observar e investigar es lo propio del tipo Investigador. El Social ayuda a otros, el Artístico crea y el Convencional ordena y registra."],
+["Una persona con personalidad Artística prefiere:",["Actividades creativas como danza, actuación y artes plásticas","Registros y trabajo de oficina","Máquinas y herramientas","Actividades organizativas y económicas"],0,"El tipo Artístico se inclina por la creatividad: danza, actuación, artes plásticas. Registros son Convencional, máquinas Realista y lo organizativo-económico Emprendedor."],
+["¿Qué personalidad de Holland prefiere actividades relacionadas con informar, curar y educar?",["Social","Realista","Convencional","Investigador"],0,"Informar, curar y educar son actividades del tipo Social, centrado en las personas. Los demás tipos se orientan a objetos, datos o investigación."],
+["¿Qué es el enfoque clínico-terapéutico o Counseling?",["Un modelo de asesoramiento directo o atención individualizada","Un método exclusivamente grupal","Una técnica de evaluación académica","Un programa de administración escolar"],0,"El Counseling es un modelo de asesoramiento directo y atención individualizada. No es grupal por definición, ni evaluación académica, ni administración escolar."],
+["¿Cuál es uno de los objetivos del Counseling?",["Satisfacer necesidades personales, educativas y socioprofesionales","Elegir una carrera por el estudiante","Eliminar todas las dificultades escolares","Evaluar únicamente la inteligencia"],0,"Busca atender necesidades personales, educativas y socioprofesionales. No elige por la persona, no promete eliminar todo problema y no se limita a medir inteligencia."],
+["El Counseling puede tener un alcance:",["Solamente terapéutico","Terapéutico, preventivo y de desarrollo personal","Únicamente educativo","Exclusivamente profesional"],1,"Su alcance es amplio: terapéutico, preventivo y de desarrollo personal. Las demás opciones lo limitan a un solo ámbito."],
+["¿En qué ámbitos puede aplicarse el Counseling?",["Familiar, educativo, profesional y salud","Únicamente educativo","Únicamente familiar","Exclusivamente laboral"],0,"Se aplica en lo familiar, educativo, profesional y de salud. Restringirlo a un solo ámbito no refleja su alcance."],
+["¿Cuál es una habilidad importante del orientador?",["Comunicación","Competencia","Autoridad absoluta","Imposición"],0,"La comunicación es una habilidad clave del orientador. La competencia, la autoridad absoluta y la imposición contradicen una relación de ayuda."],
+["La habilidad emocional del orientador implica:",["Ignorar las emociones","Manejar las emociones propias y ajenas","Evitar hablar de emociones","Controlar al cliente"],1,"Implica manejar las emociones propias y las de los demás. Ignorarlas, evitarlas o controlar al cliente va en contra de esa habilidad."],
+["La motivación como habilidad del orientador busca:",["Estimular cambios de conducta y hábitos del usuario","Evitar cambios","Imponer decisiones","Sustituir al usuario en sus decisiones"],0,"La motivación estimula cambios de conducta y hábitos en el usuario. Evitar cambios, imponer o decidir por él no es motivar."],
+["¿Cuál es la primera fase del modelo de Counseling?",["Intervención","Exploración-Valoración","Fase inicial","Evaluación final"],2,"El modelo comienza con la fase inicial; después viene la Exploración-Valoración, luego la Intervención y al final la evaluación."],
+["En la fase de Exploración-Valoración se realiza:",["La celebración de logros","El diagnóstico del problema y recolección de información","La elección de carrera","La aplicación de exámenes escolares"],1,"En esta fase se diagnostica el problema y se recopila información. Celebrar logros ocurre al final y elegir carrera no es su propósito."],
+["Una ventaja del modelo de Counseling es:",["Atención individualizada","Descontextualización","Relación jerárquica","Falta de especialización"],0,"La atención individualizada es una ventaja. Descontextualización, jerarquía y falta de especialización son defectos, no ventajas."],
+["¿Cuál es una desventaja del Counseling?",["Atención personalizada","Uso de la entrevista","No considerar las características del contexto del cliente","Orientador especializado"],2,"Una desventaja es no considerar el contexto del cliente. La atención personalizada, la entrevista y la especialización del orientador son fortalezas."],
+["¿Para qué sirve un mapa personal dentro de la planeación de vida y carrera?",["Para priorizar lo importante y tomar decisiones basadas en objetivos","Para evaluar únicamente las calificaciones","Para seleccionar una profesión automáticamente","Para medir la inteligencia"],0,"El mapa personal ayuda a priorizar lo importante y decidir con base en objetivos. No evalúa calificaciones, no elige profesión por la persona ni mide inteligencia."],
+["¿Qué caracteriza a una meta a corto plazo?",["Se establece para 5 a 10 años","Se realiza en un periodo específico, como una semana o un mes","No necesita planificación","Siempre requiere varios años"],1,"Una meta a corto plazo se cumple en un periodo breve, como una semana o un mes. De 5 a 10 años son metas a largo plazo y toda meta requiere planificación."],
+["¿Cuál de las siguientes opciones corresponde a los objetivos SMART?",["Simple, Mental, Activo, Rápido y Temporal","Específico, Medible, Alcanzable, Realista y de duración limitada","Social, Motivacional, Académico, Realista y Técnico","Seguro, Medible, Académico, Rápido y Temporal"],1,"SMART significa Específico, Medible, Alcanzable, Realista y de duración limitada. Las otras opciones inventan palabras para las mismas letras."],
+["¿Cuál es el orden correcto de los cinco pasos para crear un plan de vida y carrera?",["Valores → estrategias → pasiones → análisis → éxito","Análisis situacional → identificación de valores → descubrimiento de pasiones → visualización del éxito → diseño de estrategias","Estrategias → éxito → valores → análisis → pasiones","Pasiones → análisis → estrategias → valores → éxito"],1,"Se parte del análisis de la situación, luego los valores, las pasiones, la visión de éxito y al final se diseñan las estrategias. Diseñar estrategias antes de conocerse y visualizar la meta rompe la lógica del plan."],
+["¿Cuál es una característica de la Orientación Educativa?",["Solo se aplica durante la infancia","Sus intervenciones se extienden a lo largo de la vida","Solo se aplica en universidades","Se enfoca exclusivamente en problemas académicos"],1,"Sus intervenciones acompañan a la persona a lo largo de la vida. No se limita a la infancia, a la universidad ni a lo académico."],
+["¿Cuál es uno de los objetivos de la Orientación Educativa?",["Impedir que la persona tome decisiones","Ayudar a la autorrealización personal y educativa","Elegir por la persona su profesión","Evaluar únicamente su rendimiento escolar"],1,"Busca ayudar a la autorrealización personal y educativa. Impedir decisiones, elegir por la persona o solo evaluar rendimiento contradice su sentido."],
+["¿Cuál pertenece a los espacios de aplicación de la Orientación Educativa?",["Educación para la salud","Construcción","Contabilidad","Administración empresarial"],0,"La educación para la salud es un espacio de aplicación. Construcción, contabilidad y administración empresarial son campos ajenos."],
+["El aspecto psicológico de la orientación busca:",["Orientar considerando el contexto sociocultural y las posibilidades económicas","Mejorar únicamente las calificaciones","Diseñar planes de estudio","Administrar los recursos institucionales"],0,"Lo psicológico orienta teniendo en cuenta el contexto sociocultural y las posibilidades económicas. Las otras opciones son tareas pedagógicas o institucionales."],
+["¿Qué nivel puede abordarse dentro del área personal?",["Individual","Únicamente institucional","Únicamente laboral","Empresarial"],0,"El área personal puede abordarse en el nivel individual. Lo institucional, laboral o empresarial no es su nivel propio."],
+["¿Cuál es una función del área académica?",["Detectar causas de deserción y reprobación","Resolver conflictos económicos","Elegir el trabajo del estudiante","Administrar una empresa"],0,"El área académica detecta las causas de deserción y reprobación. Resolver conflictos económicos, elegir trabajo o administrar empresas no le corresponde."],
+["En el área vocacional, la elección profesional debe considerar:",["Intereses, aptitudes y habilidades","Solo las opiniones de los padres","Únicamente el salario","Solo las calificaciones"],0,"La elección se basa en intereses, aptitudes y habilidades. Opiniones externas, salario o calificaciones por sí solos son criterios insuficientes."],
+["El área social estudia:",["La distribución social de las ocupaciones y profesiones","Únicamente los problemas familiares","Las emociones individuales","Los planes de estudio"],0,"El área social analiza cómo se distribuyen socialmente las ocupaciones y profesiones. Lo familiar, emocional y curricular son otras áreas."],
+["¿Qué aspecto aborda el área institucional?",["Planes de estudio","Desarrollo psicosexual","Intereses personales","Relaciones afectivas"],0,"El área institucional aborda los planes de estudio. Desarrollo psicosexual e intereses son del área personal y las relaciones afectivas del área familiar."],
+["Dentro del área institucional también se consideran:",["Misión y visión","Pasiones personales","Tipos de personalidad","Relaciones familiares"],0,"Además de los planes de estudio, lo institucional considera la misión y visión. Pasiones, personalidad y familia son temas de otras áreas."],
+["¿Qué busca explicar la teoría de Holland?",["Cómo las personas toman decisiones vocacionales y profesionales","Cómo aprenden los niños a hablar","Cómo se desarrollan las emociones","Cómo funcionan las instituciones"],0,"Holland explica cómo se toman las decisiones vocacionales y profesionales. No trata del lenguaje infantil, las emociones ni las instituciones."],
+["Según Holland, ¿qué personalidad prefiere actividades de orden y registros?",["Artístico","Convencional","Social","Investigador"],1,"Orden y registros caracterizan al tipo Convencional. El Artístico crea, el Social ayuda y el Investigador indaga."],
+["¿Qué personalidad prefiere actividades para alcanzar objetivos organizativos y económicos?",["Emprendedor","Social","Realista","Artístico"],0,"Los objetivos organizativos y económicos son del tipo Emprendedor. Social, Realista y Artístico tienen otras preferencias."],
+["Una persona con personalidad social probablemente prefiera:",["Informar, curar o educar","Trabajar exclusivamente con máquinas","Realizar registros administrativos","Investigar objetos de manera aislada"],0,"El tipo Social disfruta informar, curar o educar. Máquinas son Realista, registros Convencional e investigar de forma aislada Investigador."],
+["¿Qué factores pueden facilitar el éxito y satisfacción vocacional según Holland?",["Factores personales y ambientales","Solo factores económicos","Solo factores familiares","Únicamente las calificaciones"],0,"Para Holland influyen factores personales y ambientales, sobre todo su coincidencia. Un solo factor aislado no lo explica."],
+["El Counseling es principalmente un modelo de:",["Asesoramiento directo y atención individualizada","Evaluación escolar","Administración institucional","Planeación empresarial"],0,"Es un modelo de asesoramiento directo y atención individualizada. No es evaluación escolar ni administración ni planeación empresarial."],
+["¿Cuál es una herramienta principal del Counseling?",["Entrevista","Examen escrito","Encuesta económica","Registro administrativo"],0,"La herramienta principal es la entrevista. Exámenes, encuestas económicas y registros no son sus instrumentos centrales."],
+["En el modelo de Counseling, el orientador:",["Es un profesional especializado","Es únicamente un compañero","No necesita preparación","Solo observa al cliente"],0,"Se espera un profesional especializado. No basta ser compañero, ni prescindir de preparación, ni limitarse a observar."],
+["¿Qué ocurre durante la fase inicial del Counseling?",["Se estructura la relación de ayuda y se enfoca el problema","Se celebra el logro final","Se diseñan los planes institucionales","Se selecciona una profesión"],0,"En la fase inicial se estructura la relación de ayuda y se enfoca el problema. Celebrar el logro ocurre al cierre y los planes institucionales no pertenecen al proceso."],
+["Durante la fase de intervención se busca:",["Establecer planes de acción y potenciar el autoconcepto","Recopilar información únicamente","Identificar la personalidad de Holland","Analizar planes de estudio"],0,"La intervención establece planes de acción y potencia el autoconcepto. Recopilar información corresponde a la fase de exploración."],
+["En el nivel cognitivo de la entrevista, el entrevistador identifica:",["El tipo de pensamiento predominante del cliente","La situación económica","Las relaciones familiares","La carrera profesional"],0,"El nivel cognitivo identifica el tipo de pensamiento predominante. Economía, familia o carrera no son contenidos de este nivel."],
+["En el nivel emocional, el entrevistador debe:",["Identificar y facilitar la expresión emocional","Evitar que el entrevistado hable de emociones","Cambiar las emociones del cliente","Ignorar las emociones"],0,"Debe identificar y facilitar la expresión emocional. Evitar, ignorar o cambiar las emociones impide una relación de ayuda."],
+["¿Cómo es la relación de ayuda centrada en el cliente?",["No directiva y fundamentalmente relacional","Totalmente autoritaria","Exclusivamente académica","Jerárquica y rígida"],0,"Es no directiva y fundamentalmente relacional. Lo autoritario, jerárquico o rígido es lo opuesto al enfoque centrado en el cliente."],
+["Una capacidad que se desarrolla mediante la orientación es:",["Autoconocimiento","Dependencia","Pasividad","Aislamiento"],0,"La orientación desarrolla el autoconocimiento. Dependencia, pasividad y aislamiento son lo contrario de su objetivo."],
+["Además del autoconocimiento, la orientación favorece:",["Exploración del mundo y toma de decisiones","Dependencia del orientador","Evitar las decisiones","Rechazo de información"],0,"Favorece la exploración del mundo y la toma de decisiones. Depender del orientador, evitar decidir o rechazar información la contradicen."],
+["¿Qué son las metas personales?",["Objetivos y deseos hacia los cuales se dirigen recursos y acciones","Obligaciones impuestas por otras personas","Actividades sin propósito","Resultados exclusivamente académicos"],0,"Son objetivos y deseos hacia los que se dirigen recursos y acciones. No son imposiciones, ni actividades sin propósito, ni solo logros académicos."],
+["Las metas a mediano plazo generalmente pueden ser:",["Anuales o bianuales","De una semana","De 5 a 10 años exclusivamente","De un solo día"],0,"Las metas a mediano plazo suelen ser anuales o bianuales. Una semana o un día son corto plazo y de 5 a 10 años, largo plazo."],
+["Las metas a largo plazo se establecen aproximadamente para:",["5 a 10 años","Una semana","Un mes","Tres meses"],0,"Las metas a largo plazo se fijan para unos 5 a 10 años. Una semana, un mes o tres meses son plazos cortos."],
+["¿Qué debe hacerse durante el seguimiento de un plan de vida y carrera?",["Monitorear regularmente el progreso y modificar el plan cuando sea necesario","Dejar el plan sin cambios","Evitar revisar los resultados","Empezar nuevamente cada semana"],0,"El seguimiento exige monitorear el progreso y ajustar el plan cuando haga falta. Dejarlo fijo, no revisarlo o reiniciarlo cada semana no funciona."],
+["¿Cuál es una característica importante al diseñar estrategias para un plan de vida?",["Adaptabilidad","Rigidez","Evitar nuevas oportunidades","Ignorar las circunstancias"],0,"Las estrategias deben ser adaptables para responder a los cambios. Rigidez, evitar oportunidades o ignorar circunstancias las vuelve inviables."]
+];
+var KEY="guia-orientacion-v1",L=["A","B","C","D"],S,T=Q.length;
+// Letra en la que se muestra la respuesta correcta de cada pregunta (0=A, 1=B, 2=C, 3=D): 15 de cada letra, sin repetir más de dos seguidas
+var TP=[1,3,0,2,2,0,3,1,3,1,2,0,0,2,1,3,1,0,3,2,3,2,0,1,2,1,0,3,0,3,2,1,1,2,3,0,3,0,1,2,2,3,1,0,0,1,3,2,3,1,0,2,2,0,1,3,1,3,2,0];
+function ord(k){var c=Q[k][2],r=[0,1,2,3].filter(function(n){return n!==c});r.splice(TP[k],0,c);return r}
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.ch)&&typeof d.i==="number")return d}catch(e){}return null}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({i:S.i,ch:S.ch}))}catch(e){}}
+function clear(){try{localStorage.removeItem(KEY)}catch(e){}}
+function score(){var s=0;for(var k=0;k<T;k++)if(S.ch[k]===Q[k][2])s++;return s}
+function answered(){var n=0;for(var k=0;k<T;k++)if(typeof S.ch[k]==="number")n++;return n}
+function esc(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function head(){
+ var sc=score(),an=answered();
+ document.getElementById("score").innerHTML=sc+' <small>/ '+T+' aciertos</small>';
+ document.getElementById("fill").style.width=(an/T*100)+"%";
+ document.getElementById("pct").textContent=an+" respondidas";
+ var h="";for(var k=0;k<T;k++){var c=typeof S.ch[k]==="number"?(S.ch[k]===Q[k][2]?"ok":"bad"):"";if(k===S.i&&S.i<T)c+=" cur";h+='<button type="button" class="'+c+'" data-k="'+k+'">'+(k+1)+'</button>'}
+ var nv=document.getElementById("nav");nv.innerHTML=h;
+ var bs=nv.querySelectorAll("button");for(var z=0;z<bs.length;z++)bs[z].onclick=function(){S.i=+this.getAttribute("data-k");save();render()};
+}
+function render(){
+ head();var v=document.getElementById("view");
+ if(S.i>=T){results(v);return}
+ var q=Q[S.i],c=S.ch[S.i],x='<div class="num">Pregunta '+(S.i+1)+' de '+T+'</div><p class="q">'+esc(q[0])+'</p><div class="opts">';
+ var od=ord(S.i);
+ for(var p=0;p<4;p++){var o=od[p],cl="";if(typeof c==="number"){if(o===q[2])cl=" ok";else if(o===c)cl=" bad"}
+  x+='<button class="opt'+cl+'" type="button" data-p="'+o+'"'+(typeof c==="number"?" disabled":"")+'><b>'+L[p]+'</b><span>'+esc(q[1][o])+'</span></button>'}
+ x+='</div><div id="fb"></div><div class="pn"><button class="tb" id="pv" type="button"'+(S.i===0?' disabled':'')+'>← Anterior</button><button class="go" id="nx" type="button">'+(S.i===T-1?'Ver resultados':'Siguiente →')+'</button></div>';v.innerHTML=x;
+ document.getElementById("pv").onclick=function(){go(S.i-1)};
+ document.getElementById("nx").onclick=function(){go(S.i+1)};
+ var b=v.querySelectorAll(".opt");for(var z=0;z<b.length;z++)b[z].onclick=function(){pick(+this.getAttribute("data-p"))};
+ if(typeof c==="number")feedback(c);
+}
+function go(k){S.i=k;save();render();window.scrollTo(0,0)}
+function feedback(c){
+ var q=Q[S.i],ok=c===q[2];
+ document.getElementById("fb").innerHTML='<div class="fb '+(ok?"ok":"bad")+'"><strong>'+(ok?"Correcto":"Incorrecto — la respuesta correcta es la "+L[ord(S.i).indexOf(q[2])])+'</strong>'+esc(q[3])+'</div>';
+}
+function pick(p){
+ if(typeof S.ch[S.i]==="number")return;
+ S.ch[S.i]=p;save();render();
+ var f=document.getElementById("fb");if(f&&f.scrollIntoView)f.scrollIntoView({block:"nearest",behavior:"smooth"});
+}
+function results(v){
+ var sc=score(),pc=Math.round(sc/T*100),m=[],pe=[];
+ for(var k=0;k<T;k++){if(typeof S.ch[k]!=="number")pe.push(k+1);else if(S.ch[k]!==Q[k][2])m.push(k+1)}
+ var g=(sc/T*10).toFixed(1),msg=pc>=90?"Dominas el tema.":pc>=70?"Buen nivel; repasa los puntos fallados.":"Conviene repasar el material y volver a intentarlo.";
+ v.innerHTML='<div class="res"><div class="num">Resultado final</div><h2>'+sc+' de '+T+' correctas</h2><div class="big">'+pc+'%</div><p>Calificación: '+g+' / 10. '+msg+'</p>'+(pe.length?'<div class="miss"><strong>Sin responder ('+pe.length+'):</strong> '+pe.join(", ")+'</div><button class="go" id="back" type="button">Ir a la/las pregunta (s) pendientes</button> ':'')+(m.length?'<div class="miss"><strong>Preguntas para repasar:</strong> '+m.join(", ")+'</div>':'')+'<button class="go" id="again" type="button">Intentar de nuevo</button></div>';
+ document.getElementById("again").onclick=restart;
+ var bk=document.getElementById("back");if(bk)bk.onclick=function(){go(pe[0]-1)};
+}
+function restart(){clear();S={i:0,ch:[]};document.getElementById("note").innerHTML="";render();window.scrollTo(0,0)}
+function init(){
+ var d=load();
+ if(d&&d.i>=0&&d.i<=T){S={i:d.i,ch:d.ch.slice(0,T)};
+  if(answered()>0&&S.i<T)document.getElementById("note").innerHTML='<div class="notice">Retomaste tu avance: llevas '+answered()+' de '+T+' preguntas respondidas.</div>'}
+ else S={i:0,ch:[]};
+ render();
+}
+var root=document.documentElement,tb=document.getElementById("theme");
+function dark(){var t=root.getAttribute("data-theme");return t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches}
+function setLabel(){tb.textContent=dark()?"Modo claro":"Modo oscuro"}
+try{var st=localStorage.getItem("guia-orientacion-tema");if(st)root.setAttribute("data-theme",st)}catch(e){}
+setLabel();
+tb.onclick=function(){var t=dark()?"light":"dark";root.setAttribute("data-theme",t);try{localStorage.setItem("guia-orientacion-tema",t)}catch(e){}setLabel()};
+var md=document.getElementById("modal");
+document.getElementById("reset").onclick=function(){md.classList.add("on")};
+document.getElementById("no").onclick=function(){md.classList.remove("on")};
+document.getElementById("yes").onclick=function(){md.classList.remove("on");restart()};
+init();
+</script>
+</body>
+</html>
